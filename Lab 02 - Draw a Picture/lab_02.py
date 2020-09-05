@@ -68,6 +68,16 @@ arcade.draw_polygon_filled(((325, 50),
                             (335, 25)),
                            arcade.csscolor.AQUA)
 
+# Fish jumping out of the pond
+# ellipse body with center of (450,65) width of 25 and height of 15
+# triangle tail with points at (425,55) (450,65) and (425,75)
+# point for an at (455,66) and size 5
+arcade.draw_ellipse_filled(450, 65, 25, 15, arcade.csscolor.ORANGE)
+arcade.draw_triangle_filled(425, 55, 450, 65, 425, 75, arcade.csscolor.ORANGE)
+arcade.draw_point(455, 66, arcade.csscolor.BLACK, 5)
+
+
+
 # End of Drawing
 arcade.finish_render()
 
