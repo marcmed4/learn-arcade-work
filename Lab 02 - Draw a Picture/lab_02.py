@@ -1,24 +1,20 @@
+# Start by importing arcade. 
 import arcade
 arcade.open_window(600, 600, "Drawing Lab")
 
-# Background color
+# This places the sky blue background color.
 arcade.set_background_color(arcade.csscolor.SKY_BLUE)
 
-# Start of Drawing
+# This is the start of the drawing.
 arcade.start_render()
 
-# Grass
-# left of 0, right of 599
-# bottom of 0, top 0f 199
+# Draw grass.
 arcade.draw_lrtb_rectangle_filled(0, 599, 199, 0, arcade.csscolor.GREEN)
 
-# Sun
-# Center of (50,549)
-# Radius of 50
+# Draw a sun.
 arcade.draw_circle_filled(50, 549, 50, arcade.csscolor.YELLOW)
 
-# Running Trail
-# Made Using Polygon Function
+# Draw a trail using the polygon function.
 arcade.draw_polygon_filled(((0, 150),
                             (125, 115),
                             (325, 165),
@@ -29,30 +25,19 @@ arcade.draw_polygon_filled(((0, 150),
                             (0, 110)),
                            arcade.csscolor.DARK_GRAY)
 
-# Base of Tree 1
-# Left of 120, Right of 145
-# Top of 250, Bottom of 175
+# Draw the trunk of tree 1.
 arcade.draw_lrtb_rectangle_filled(120, 145, 250, 175, arcade.csscolor.BROWN)
 
-# Triangle Shaped Top of Tree 1
-# Left Point (100,250)
-# Right Point (165, 250)
-# Top Point (132.5, 300)
+# Draw a triangle shaped top of tree 1.
 arcade.draw_triangle_filled(100, 250, 165, 250, 132.5, 300, arcade.csscolor.GREEN)
 
-# Trunk of Tree 2
-# Left of 350, Right of 380
-# Top of 275, Bottom of 170
+# Draw a trunk of tree 2.
 arcade.draw_lrtb_rectangle_filled(350, 380, 275, 170, arcade.csscolor.BROWN)
 
-# Arc Shaped Top of Tree 2
-# Center of (365, 275
-# Width of 60
-# Height of 100
-# Starting Angel is 0, Ending Angel is 180
+# Draw an arc shaped top of tree 2.
 arcade.draw_arc_filled(365, 275, 60, 100, arcade.csscolor.GREEN, 0, 180)
 
-# Pond Made from Polygon Function
+# Draw a pond made from the polygon function.
 arcade.draw_polygon_filled(((325, 50),
                             (400, 80),
                             (430, 90),
@@ -68,18 +53,48 @@ arcade.draw_polygon_filled(((325, 50),
                             (335, 25)),
                            arcade.csscolor.AQUA)
 
-# Fish jumping out of the pond
-# ellipse body with center of (450,65) width of 25 and height of 15
-# triangle tail with points at (425,55) (450,65) and (425,75)
-# point for an at (455,66) and size 5
+# Draw a fish jumping out of the pond.
+# Draw an ellipse body with center of (450,65) width of 25 and height of 15.
+# Draw a triangle tail with points at (425,55) (450,65) and (425,75).
+# Draw a point for an eye at (455,66) and size 5.
 arcade.draw_ellipse_filled(450, 65, 25, 15, arcade.csscolor.ORANGE)
 arcade.draw_triangle_filled(425, 55, 450, 65, 425, 75, arcade.csscolor.ORANGE)
 arcade.draw_point(455, 66, arcade.csscolor.BLACK, 5)
 
+# Draw a flower with a stem.
+# Draw 4 ellipses for the pedals.
+# Draw a circle center.
+# Draw a rectangle as the stem.
+arcade.draw_lrtb_rectangle_filled(250, 255, 50, 10, arcade.csscolor.DARK_GREEN)
+arcade.draw_ellipse_filled(262.5, 50, 20, 10, arcade.csscolor.HOTPINK)
+arcade.draw_ellipse_filled(252.5, 60, 10, 20, arcade.csscolor.HOTPINK)
+arcade.draw_ellipse_filled(242.5, 50, 20, 10, arcade.csscolor.HOTPINK)
+arcade.draw_ellipse_filled(252.5, 40, 10, 20, arcade.csscolor.HOTPINK)
+arcade.draw_circle_filled(252.5, 50, 5, arcade.csscolor.YELLOW)
+
+# Draw a rhombus shaped kite in the sky.
+arcade.draw_polygon_filled(((450, 455),
+                           (465, 440),
+                           (450, 410),
+                           (435, 440)),
+                           (arcade.csscolor.TOMATO))
+
+# Draw a line connecting a rhombus shaped kite to the ground.
+arcade.draw_line(450, 410, 500, 199, arcade.csscolor.BLACK)
+
+# Draw an arrow shaped kite.
+arcade.draw_polygon_filled(((250, 430),
+                            (270, 360),
+                            (250, 380),
+                            (230, 360)),
+                            (arcade.csscolor.LIME_GREEN))
+
+# Draw a string connected to arrow shaped kite.
+arcade.draw_line(250, 380, 225, 199, arcade.csscolor.BLACK)
 
 
-# End of Drawing
+# This ends the drawing.
 arcade.finish_render()
 
-# Continuous Window
+# Show a continuous window.
 arcade.run()
