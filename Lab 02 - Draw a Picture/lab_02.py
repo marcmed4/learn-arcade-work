@@ -1,4 +1,4 @@
-# Start by importing arcade. 
+# Start by importing arcade.
 import arcade
 arcade.open_window(600, 600, "Drawing Lab")
 
