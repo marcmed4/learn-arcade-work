@@ -11,3 +11,7 @@ It was tough,
 but a good run.""")
 
 
+def f(a, b):
+    print(a + b)
+
+f(5, 10)
