@@ -32,20 +32,20 @@ def main():
         userinput = input("What will you do? ")
 
         # Check if they want to quit
-        if userinput.upper() == "Q":
+        if userinput.upper() == "Q" and not done:
             done = True
             print("You have ended the game.")
             print("The shark regained his treasure and you are lost at sea.")
 
         # status update
-        elif userinput.upper() == "E":
+        elif userinput.upper() == "E" and not done:
             print("Miles Traveled:", miles_traveled)
             print("Fish Remaining:", fish)
             print("The shark is", miles_traveled - shark_miles, "miles behind you.")
             print()
 
         # Stop for the night
-        elif userinput.upper() == "D":
+        elif userinput.upper() == "D" and not done:
             print("You stop on a raft for the night.")
             print("The dolphin is happy!")
             print("The shark keeps going!")
@@ -54,7 +54,7 @@ def main():
             shark_miles += random.randrange(7, 14, 1)
 
         # Swim full speed ahead
-        elif userinput.upper() == "C":
+        elif userinput.upper() == "C" and not done:
             miles = random.randrange(10, 20, 1)
             miles_traveled += miles
             hunger += 1
@@ -77,7 +77,7 @@ def main():
                 print()
 
         # Swim at moderate speed
-        elif userinput.upper() == "B":
+        elif userinput.upper() == "B" and not done:
             miles = random.randrange(5, 12, 1)
             miles_traveled += miles
             hunger += 1
@@ -100,7 +100,7 @@ def main():
                 print()
 
         # Eat some fish
-        elif userinput.upper() == "A":
+        elif userinput.upper() == "A" and not done:
             if fish > 0:
                 fish -= 1
                 hunger = 0
