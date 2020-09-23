@@ -10,8 +10,5 @@ we did a repeat 1000 meter workout.
 It was tough,
 but a good run.""")
 
+import random
 
-def f(a, b):
-    print(a + b)
-
-f(5, 10)
