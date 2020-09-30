@@ -10,5 +10,7 @@ we did a repeat 1000 meter workout.
 It was tough,
 but a good run.""")
 
-import random
-
+x = 1
+while x < 64:
+    print(x)
+    x = x * 2

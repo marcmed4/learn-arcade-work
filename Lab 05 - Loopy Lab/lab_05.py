@@ -1,108 +1,124 @@
 import arcade
 
-SCREEN_WIDTH = 685
-SCREEN_HEIGHT = 710
+column_spacing = 10
+row_spacing = 10
+left_margin = 5
+bottom_margin = 5
 
 
-def draw_head_1(x, y):
-    """Draw the head of the cat"""
-    arcade.draw_ellipse_filled(150 + x, 150 + y, 170, 150, arcade.csscolor.GRAY)
+def draw_section_outlines():
+    # Draw squares on bottom
+    arcade.draw_rectangle_outline(150, 150, 300, 300, arcade.color.BLACK)
+    arcade.draw_rectangle_outline(450, 150, 300, 300, arcade.color.BLACK)
+    arcade.draw_rectangle_outline(750, 150, 300, 300, arcade.color.BLACK)
+    arcade.draw_rectangle_outline(1050, 150, 300, 300, arcade.color.BLACK)
+
+    # Draw squares on top
+    arcade.draw_rectangle_outline(150, 450, 300, 300, arcade.color.BLACK)
+    arcade.draw_rectangle_outline(450, 450, 300, 300, arcade.color.BLACK)
+    arcade.draw_rectangle_outline(750, 450, 300, 300, arcade.color.BLACK)
+    arcade.draw_rectangle_outline(1050, 450, 300, 300, arcade.color.BLACK)
 
 
-def draw_head_2(x, y):
-    """Draw the head of the 2nd cat"""
-    arcade.draw_ellipse_filled(350 + x, 150 + y, 170, 150, arcade.csscolor.BEIGE)
+def draw_section_1():
+    for row in range(30):
+        for column in range(30):
+            x = column * column_spacing + left_margin
+            y = row * row_spacing + bottom_margin
+            arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE)
 
 
-def draw_eyes_1(x, y):
-    """Draw the green eyes of the cat"""
-    arcade.draw_circle_filled(130 + x, 165 + y, 15, arcade.csscolor.GREEN)
-    arcade.draw_circle_filled(130 + x, 165 + y, 8.5, arcade.csscolor.BLACK)
-    arcade.draw_circle_filled(170 + x, 165 + y, 15, arcade.csscolor.GREEN)
-    arcade.draw_circle_filled(170 + x, 165 + y, 8.5, arcade.csscolor.BLACK)
+def draw_section_2():
+    for row in range(30):
+        for column in range(30):
+            x = column * column_spacing + left_margin + 300
+            y = row * row_spacing + bottom_margin
+            if column % 2:
+                print(arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.BLACK))
+            else:
+                print(arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE))
 
 
-def draw_eyes_2(x, y):
-    """Draw the blue eyes of the cat"""
-    arcade.draw_circle_filled(330 + x, 165 + y, 15, arcade.csscolor.BLUE)
-    arcade.draw_circle_filled(330 + x, 165 + y, 8.5, arcade.csscolor.BLACK)
-    arcade.draw_circle_filled(370 + x, 165 + y, 15, arcade.csscolor.BLUE)
-    arcade.draw_circle_filled(370 + x, 165 + y, 8.5, arcade.csscolor.BLACK)
+def draw_section_3():
+    for row in range(30):
+        for column in range(30):
+            x = column * column_spacing + left_margin + 600
+            y = row * row_spacing + bottom_margin
+
+            if row % 2:
+                print(arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.BLACK))
+            else:
+                print(arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE))
 
 
-def draw_nose_mouth(x, y):
-    """Draw the nose and mouth of the cat"""
+def draw_section_4():
+    # Use the modulus operator and just one 'if' statement to select the color.
+    for row in range(30):
+        for column in range(30):
+            x = column * column_spacing + left_margin + 900
+            y = row * row_spacing + bottom_margin
 
-    # Nose
-    arcade.draw_triangle_filled(140 + x, 150 + y, 160 + x, 150 + y, 150 + x, 130 + y, arcade.csscolor.LIGHT_PINK)
-
-    # Mouth
-    arcade.draw_line(150 + x, 130 + y, 150 + x, 115 + y, arcade.csscolor.LIGHT_PINK)
-    arcade.draw_parabola_outline(125 + x, 130 + y, 150 + x, -15, arcade.csscolor.LIGHT_PINK)
-    arcade.draw_parabola_outline(175 + x, 130 + y, 150 + x, -15, arcade.csscolor.LIGHT_PINK)
-
-
-def draw_ears_1(x, y):
-    """Draw the ears of the 1st cat"""
-    arcade.draw_triangle_filled(100 + x, 210 + y, 130 + x, 220 + y, 115.5 + x, 260 + y, arcade.csscolor.GREY)
-    arcade.draw_triangle_filled(200 + x, 210 + y, 170 + x, 220 + y, 185.5 + x, 260 + y, arcade.csscolor.GREY)
-    arcade.draw_triangle_filled(110 + x, 210 + y, 120 + x, 220 + y, 115.5 + x, 240 + y, arcade.csscolor.LIGHT_GREY)
-    arcade.draw_triangle_filled(190 + x, 210 + y, 180 + x, 220 + y, 185.5 + x, 240 + y, arcade.csscolor.LIGHT_GREY)
+            if row % 2 and column % 2:
+                print(arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE))
+            else:
+                print(arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.BLACK))
 
 
-def draw_ear_2(x, y):
-    """Draw the ears of the 2nd cat"""
-    arcade.draw_triangle_filled(300 + x, 210 + y, 330 + x, 220 + y, 315.5 + x, 260 + y, arcade.csscolor.BEIGE)
-    arcade.draw_triangle_filled(400 + x, 210 + y, 370 + x, 220 + y, 385.5 + x, 260 + y, arcade.csscolor.BEIGE)
-    arcade.draw_triangle_filled(310 + x, 210 + y, 320 + x, 220 + y, 315.5 + x, 240 + y, arcade.csscolor.LIGHT_SALMON)
-    arcade.draw_triangle_filled(390 + x, 210 + y, 380 + x, 220 + y, 385.5 + x, 240 + y, arcade.csscolor.LIGHT_SALMON)
+def draw_section_5():
+    for row in range(30):
+        for column in range(row, 30):
+            x = column * column_spacing + left_margin
+            y = row * row_spacing + bottom_margin + 300
+            arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE)
 
 
-def draw_cat_1(x, y):
-    """Includes all parts to draw entire cat 1"""
-    draw_head_1(0 + x, 0 + y)
-    draw_eyes_1(0 + x, 0 + y)
-    draw_nose_mouth(0 + x, 0 + y)
-    draw_ears_1(0 + x, 0 + y)
+def draw_section_6():
+    for row in range(30):
+        for column in range(30 - row):
+            x = column * column_spacing + left_margin + 300
+            y = row * row_spacing + bottom_margin + 300
+            arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE)
 
 
-def draw_cat_2(x, y):
-    """Includes all parts to draw entire cat 2"""
-    draw_head_2(0 + x, 0 + y)
-    draw_eyes_2(0 + x, 0 + y)
-    draw_nose_mouth(200 + x, 0 + y)
-    draw_ear_2(0 + x, 0 + y)
+def draw_section_7():
+    for row in range(30):
+        for column in range(1 + row):
+            x = column * column_spacing + left_margin + 600
+            y = row * row_spacing + bottom_margin + 300
+            arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE)
+
+
+def draw_section_8():
+    for row in range(30):
+        for column in range(29 - row, 30):
+            x = column * column_spacing + left_margin + 900
+            y = row * row_spacing + bottom_margin + 300
+            arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE)
 
 
 def main():
-    """THis is the main function"""
-    arcade.open_window(685, 710, "Function Drawing")
-    arcade.set_background_color(arcade.csscolor.TAN)
+    # Create a window
+    arcade.open_window(1200, 600, "Lab 05 - Loopy Lab")
+    arcade.set_background_color(arcade.color.AIR_FORCE_BLUE)
+
     arcade.start_render()
 
-    draw_cat_1(-65, -75)
-    draw_cat_1(-65, 100)
-    draw_cat_1(-65, 275)
-    draw_cat_1(-65, 450)
+    # Draw the outlines for the sections
+    draw_section_outlines()
 
-    draw_cat_2(-95, -75)
-    draw_cat_2(-95, 100)
-    draw_cat_2(-95, 275)
-    draw_cat_2(-95, 450)
+    # Draw the sections
+    draw_section_1()
+    draw_section_2()
+    draw_section_3()
+    draw_section_4()
+    draw_section_5()
+    draw_section_6()
+    draw_section_7()
+    draw_section_8()
 
-    draw_cat_1(275, -75)
-    draw_cat_1(275, 100)
-    draw_cat_1(275, 275)
-    draw_cat_1(275, 450)
-
-    draw_cat_2(245, -75)
-    draw_cat_2(245, 100)
-    draw_cat_2(245, 275)
-    draw_cat_2(245, 450)
-
-    # Finish and run
     arcade.finish_render()
+
     arcade.run()
 
 
-# Call the main function to get the program started
+main()
