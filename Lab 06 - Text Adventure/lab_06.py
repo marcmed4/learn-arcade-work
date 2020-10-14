@@ -14,7 +14,7 @@ def main():
     # Create room 0
     room = Room(
         "You have entered the Kitchen. Mom is making Tacos."
-        " Wash you hands in the bathroom to the East or set the table to the North.",
+        " Wash you hands in the bathroom to the east or set the table to the north.",
         4,
         None,
         1,
@@ -24,7 +24,7 @@ def main():
     # Create room 1
     room = Room(
         "You have reached the bathroom. Make sure to wash your hands to prevent the spread of Covid-19. "
-        "There are doors to the North, East, and West of you.",
+        "There are doors to the north, east, and west of you.",
         5,
         None,
         2,
@@ -33,8 +33,8 @@ def main():
 
     # Create room 2
     room = Room(
-        "You are in your bedroom. Give yourself a rest before heading to you indoor basketball hoop to the East "
-        "or the game room to your North.",
+        "You are in your bedroom. Give yourself a rest before heading to you indoor basketball hoop to the east "
+        "or the game room to your north.",
         6,
         None,
         3,
@@ -43,8 +43,8 @@ def main():
 
     # Create room 3
     room = Room(
-        "You entered the indoor gym. Shoot some hoops before dinner, but don't bother your sister to the North. "
-        "You could also return to your room to the West.",
+        "You entered the indoor gym. Shoot some hoops before dinner, but don't bother your sister to the north. "
+        "You could also return to your room to the west.",
         7,
         None,
         None,
@@ -54,7 +54,7 @@ def main():
     # Create room 4
     room = Room(
         "You arrive in the dining room. Help your parents by setting the table for dinner. Or get a pre-meal snack "
-        "from the kitchen to the South. Remember, your parents do not like you in their room to the East.",
+        "from the kitchen to the south. Remember, your parents do not like you in their room to the east.",
         None,
         0,
         5,
@@ -74,7 +74,7 @@ def main():
     # Create room 6
     room = Room(
         "You just entered the game room. You play some Call of Duty to pass the time until dinner. "
-        "You can also head out to the porch to the North to enjoy the weather.",
+        "You can also head out to the porch to the north to enjoy the weather.",
         8,
         2,
         7,
@@ -84,7 +84,7 @@ def main():
     # Create room 7
     room = Room(
         "You are now in your sister's room and you two are fighting. Mom tells you to knock it off or you will not "
-        "be able to go to the indoor gym to the South or the game room to the West anymore.",
+        "be able to go to the indoor gym to the south or the game room to the west anymore.",
         None,
         3,
         None,
@@ -94,7 +94,7 @@ def main():
     # Create room 8
     room = Room(
         "You go outside on the porch. Lay in the hammock and relax. You deserve it! You can remain outside by going "
-        "East, or risk going into your parent's room to the South.",
+        "east, or risk going into your parent's room to the south.",
         None,
         5,
         None,
@@ -104,7 +104,7 @@ def main():
     # Extend room 8
     room = Room(
         "You go outside on the porch. Lay in the hammock and relax. You deserve it! You can remain outside by going "
-        "West, or go South to your game room.",
+        "west, or go south to your game room.",
         None,
         6,
         None,
@@ -123,7 +123,7 @@ def main():
         room_choice = user_input
 
         # Allow the user to go North
-        if room_choice.upper() == "North" or room_choice.upper() == "N":
+        if room_choice.upper() == "NORTH" or room_choice.upper() == "N":
             next_room = room_list[current_room].north
             if next_room is None:
                 print()
@@ -132,7 +132,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go South
-        elif room_choice.upper() == "South" or room_choice.upper() == "S":
+        elif room_choice.upper() == "SOUTH" or room_choice.upper() == "S":
             next_room = room_list[current_room].south
             if next_room is None:
                 print()
@@ -141,7 +141,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go East
-        elif room_choice.upper() == "East" or room_choice.upper() == "E":
+        elif room_choice.upper() == "EAST" or room_choice.upper() == "E":
             next_room = room_list[current_room].east
             if next_room is None:
                 print()
@@ -150,7 +150,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go West
-        elif room_choice.upper() == "West" or room_choice.upper() == "W":
+        elif room_choice.upper() == "WEST" or room_choice.upper() == "W":
             next_room = room_list[current_room].west
             if next_room is None:
                 print()
@@ -159,7 +159,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to end the game
-        elif room_choice.upper() == "Quit" or room_choice.upper() == "Q":
+        elif room_choice.upper() == "QUIT" or room_choice.upper() == "Q":
             done = True
             print()
             print("You have left the house. GAME OVER")
