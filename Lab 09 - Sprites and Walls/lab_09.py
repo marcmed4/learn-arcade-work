@@ -342,5 +342,6 @@ def main():
     arcade.run()
 
 
+# call the main function
 if __name__ == "__main__":
     main()
