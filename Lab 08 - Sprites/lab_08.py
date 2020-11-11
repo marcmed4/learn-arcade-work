@@ -132,7 +132,7 @@ class MarcGame(arcade.Window):
             output = f"Score: {self.score}"
             arcade.draw_text(output, 200, 325, arcade.color.WHITE, 75)
 
-    # Set the monkey up to teh mouse
+    # Set the monkey up to the mouse
     def on_mouse_motion(self, x, y, dx, dy):
         # Stop mouse movement if no good sprites are left
         if len(self.art_list) > 0:
