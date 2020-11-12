@@ -14,9 +14,10 @@ class Room:
         self.southwest = southwest
 
 
+# Create an item class
 class Item:
-    def __init__(self, room_number, description, name):
-        self.room_number = room_number
+    def __init__(self, room, description, name):
+        self.room = room
         self.description = description
         self.name = name
 
@@ -24,12 +25,34 @@ class Item:
 def main():
     item_list = []
 
-    # Create Item 0
     item = Item(
         7,
-        "You take a rest on the comfortable lazy boy. However, after a bit, you get an odd feeling someone "
-        "has recently sat in the chair.",
+        "You see a comfortable looking chair in the corner. If you want, take a rest.",
         "chair")
+    item_list.append(item)
+
+    item = Item(
+        1,
+        "You see a key lying on the floor. Try and pick it up.",
+        "key")
+    item_list.append(item)
+
+    item = Item(
+        5,
+        "You are thirst for some water. Try turning on the sink.",
+        "sink")
+    item_list.append(item)
+
+    item = Item(
+        3,
+        "In the bedroom, you see a golden plated sword. That may come in use later, pick it up.",
+        "sword")
+    item_list.append(item)
+
+    item = Item(
+        13,
+        "In the corner you see a chest. If you have a key, try and open it up.",
+        "chest")
     item_list.append(item)
 
     room_list = []
@@ -306,6 +329,10 @@ def main():
     while not done:
         print()
         print(room_list[current_room].description)
+        for item in item_list:
+            if item.room == current_room:
+                print(item.description)
+
         user_input = input("What direction would you like to go? ")
         room_choice = user_input
 
