@@ -392,6 +392,8 @@ class MyGame(arcade.Window):
 
         self.create_shapes_from_grid()
 
+        print(self.grid[row][column])
+
 
 def main():
 
