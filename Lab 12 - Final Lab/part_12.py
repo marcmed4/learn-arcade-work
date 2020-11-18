@@ -23,12 +23,14 @@ class Item:
 
 
 def main():
+
     item_list = []
 
     item = Item(
-        7,
-        "You see a comfortable looking chair in the corner. If you want, take a rest.",
-        "chair")
+        1,
+        "You realize that you are starving. You look at the table and see a roasted turkey. "
+        "\nYou find this odd but your hunger is getting worse. Try and pick up the turkey.",
+        "turkey")
     item_list.append(item)
 
     item = Item(
@@ -38,9 +40,15 @@ def main():
     item_list.append(item)
 
     item = Item(
-        5,
-        "You are thirst for some water. Try turning on the sink.",
-        "sink")
+        4,
+        "You see a very tattered diary. Your curiosity gets the best of you. Try and pick it up.",
+        "diary")
+    item_list.append(item)
+
+    item = Item(
+        7,
+        "A bow and arrow lies in the corner of the room. Grab it in case you need it later.",
+        "bow")
     item_list.append(item)
 
     item = Item(
@@ -51,7 +59,8 @@ def main():
 
     item = Item(
         13,
-        "In the corner you see a chest. If you have a key, try and open it up.",
+        "In the corner you see a chest. "
+        "\nFirst pick it up and then try and open it with a key, if you have one.",
         "chest")
     item_list.append(item)
 
@@ -110,7 +119,7 @@ def main():
     # Create room 3
     room = Room(
         "You stumble into what appears to be a bedroom. "
-        "\nAs you are looking around you hear a snarling voice telling you to get out. "
+        "\nAs you are looking around when you hear a snarling voice telling you to get out. "
         "\nYou take the advice and choose a door to the north or west.",
         7,
         None,
@@ -338,7 +347,7 @@ def main():
         command_words = user_input.split(" ")
 
         # Allow the user to go north
-        if command_words[0].upper == "NORTH" or command_words[0].upper() == "N":
+        if command_words[0].upper() == "NORTH" or command_words[0].upper() == "N":
             next_room = room_list[current_room].north
             if next_room is None:
                 print()
@@ -347,7 +356,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go south
-        elif command_words[0].upper == "SOUTH" or command_words[0].upper() == "S":
+        elif command_words[0].upper() == "SOUTH" or command_words[0].upper() == "S":
             next_room = room_list[current_room].south
             if next_room is None:
                 print()
@@ -356,7 +365,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go east
-        elif command_words[0].upper == "EAST" or command_words[0].upper() == "E":
+        elif command_words[0].upper() == "EAST" or command_words[0].upper() == "E":
             next_room = room_list[current_room].east
             if next_room is None:
                 print()
@@ -365,7 +374,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go west
-        elif command_words[0].upper == "WEST" or command_words[0].upper() == "W":
+        elif command_words[0].upper() == "WEST" or command_words[0].upper() == "W":
             next_room = room_list[current_room].west
             if next_room is None:
                 print()
@@ -374,7 +383,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go up
-        elif command_words[0].upper == "UP" or command_words[0].upper() == "U":
+        elif command_words[0].upper() == "UP" or command_words[0].upper() == "U":
             next_room = room_list[current_room].up
             if next_room is None:
                 print()
@@ -383,7 +392,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go down
-        elif command_words[0].upper == "Down" or command_words[0].upper() == "D":
+        elif command_words[0].upper() == "Down" or command_words[0].upper() == "D":
             next_room = room_list[current_room].down
             if next_room is None:
                 print()
@@ -392,7 +401,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go northeast
-        elif command_words[0].upper == "Northeast" or command_words[0].upper() == "NE":
+        elif command_words[0].upper() == "Northeast" or command_words[0].upper() == "NE":
             next_room = room_list[current_room].northeast
             if next_room is None:
                 print()
@@ -401,7 +410,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go northeast
-        elif command_words[0].upper == "Northwest" or command_words[0].upper() == "NW":
+        elif command_words[0].upper() == "Northwest" or command_words[0].upper() == "NW":
             next_room = room_list[current_room].northwest
             if next_room is None:
                 print()
@@ -410,7 +419,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go northeast
-        elif command_words[0].upper == "Southeast" or command_words[0].upper() == "SE":
+        elif command_words[0].upper() == "Southeast" or command_words[0].upper() == "SE":
             next_room = room_list[current_room].southeast
             if next_room is None:
                 print()
@@ -419,7 +428,7 @@ def main():
                 current_room = next_room
 
         # Allow the user to go northeast
-        elif command_words[0].upper == "SOUTHWEST" or command_words[0].upper() == "SW":
+        elif command_words[0].upper() == "SOUTHWEST" or command_words[0].upper() == "SW":
             next_room = room_list[current_room].southwest
             if next_room is None:
                 print()
@@ -428,16 +437,16 @@ def main():
                 current_room = next_room
 
         # Allow the user to end the game
-        elif command_words[0].upper == "QUIT" or command_words[0].upper() == "Q":
+        elif command_words[0].upper() == "QUIT" or command_words[0].upper() == "Q":
             done = True
             print()
             print("You have left the house. GAME OVER")
 
         # Allow the user to pick up objects
-        elif command_words[0].upper == "GET" or command_words[0].upper() == "G":
+        elif command_words[0].upper() == "GET" or command_words[0].upper() == "G":
             get_item = False
             for item in item_list:
-                if item.room == current_room:
+                if item.room == current_room and item.name == command_words[1].lower():
                     print()
                     print("You have collected", item.name)
                     get_item = True
@@ -446,18 +455,66 @@ def main():
                 print()
                 print("The item is not in this location.")
 
-        elif command_words[0].upper == "RELEASE" or command_words[0].upper() == "R":
-            if item.room == -1:
-                print()
-                print("You have released", item.name)
-                item.room = 1
-            else:
+        elif command_words[0].upper() == "RELEASE" or command_words[0].upper() == "R":
+            get_item = False
+            for item in item_list:
+                if item.room == -1 and item.name == command_words[1].lower():
+                    print()
+                    print("You have released", item.name)
+                    get_item = True
+                    item.room = current_room
+            if not get_item:
                 print()
                 print("You do not have this item on hand.")
 
-        elif command_words[0].upper == "INVENTORY" or command_words[0].upper() == "I":
-            if item.room == -1:
-                print(item.name)
+        elif command_words[0].upper() == "INVENTORY" or command_words[0].upper() == "I":
+            for item in item_list:
+                if item.room == -1:
+                    print(item.name)
+
+        elif command_words[0].upper() == "SWING":
+            item_use = False
+            for item in item_list:
+                if item.room == -1 and item.name == "sword":
+                    print()
+                    print("You swing the sword.")
+                    item_use = True
+            if not item_use:
+                print()
+                print("You do not have the sword in your possession.")
+
+        elif command_words[0].upper() == "USE":
+            item_use = False
+            for item in item_list:
+                if item.room == -1 and item.name == "bow":
+                    print()
+                    print("You load the bow, pull back, and release.")
+                    item_use = True
+            if not item_use:
+                print()
+                print("You do not have the bow in your possession.")
+
+        elif command_words[0].upper() == "USE":
+            item_use = False
+            for item in item_list:
+                if item.room == -1 and item.name == "key":
+                    print()
+                    print("You have unlocked the treasure chest. Inside is a boat load of gold coins.")
+            if not item_use:
+                print()
+                print("You do not have either the key or the chest in your possession.")
+
+        elif command_words[0].upper() == "OPEN":
+            item_open = False
+            for item in item_list:
+                if item.room == -1 and item.name == "book":
+                    print()
+                    print("You open the book and flip to a random page. It reads:"
+                          "\"This is day three in this abandoned house. I need to get out of this place. "
+                          "\nDo they not know I'm missing yet?\"")
+                if not item_open:
+                    print()
+                    print("You do not have the book in your possession.")
 
         # Create a statement for any inputs that do not match the game
         else:
