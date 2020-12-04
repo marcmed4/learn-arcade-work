@@ -1,8 +1,8 @@
-import random
-
 """
 Welcome to the newest and best text adventure game currently on the market called "The House with a Secret"
 """
+
+import random
 
 
 # Create the room class
@@ -92,7 +92,7 @@ def main():
 
     # Create room 1
     room = Room(
-        "You have reached the dinning room. The floorboards squeak with every step. "
+        "You have reached the dining room. The floorboards squeak with every step. "
         "\nYou see a suspicious trap door on the floor. You can choose to investigate that, "
         "\nyou may return to the entry hall to the west, or you can choose the doors to the north and east of you.",
         5,
@@ -387,6 +387,8 @@ def main():
 
     # Create the arrow variable
     arrow = 3
+    # Set up player health
+    health = 1
     # Create the starting point
     current_room = 0
 
@@ -413,8 +415,7 @@ def main():
         # Split apart the users input by spaces
         command_words = user_input.split(" ")
         # set up the ability to randomly die
-        health = 2
-        hurt = random.randrange(10)
+        hurt = random.randrange(11)
 
         # Allow the user to go north
         if command_words[0].upper() == "NORTH" or command_words[0].upper() == "N":
@@ -699,5 +700,5 @@ def main():
             print("The server does not understand what you are trying to do. Please try again.")
 
 
-# Call the main function 
+# Call the main function
 main()

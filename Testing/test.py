@@ -1,20 +1,25 @@
-# Create the room class
+"""
+My house
+"""
+
+
+# Create a room class
 class Room:
-    def __init__(self, description, north, south, east, west, up, down, northeast, northwest, southeast, southwest):
+    def __init__(self, description, north, east, south, west, northeast, southeast, southwest, northwest, up, down):
         self.description = description
         self.north = north
-        self.south = south
         self.east = east
+        self.south = south
         self.west = west
-        self.up = up
-        self.down = down
         self.northeast = northeast
-        self.northwest = northwest
         self.southeast = southeast
         self.southwest = southwest
+        self.northwest = northwest
+        self.up = up
+        self.down = down
 
 
-# Create an item class
+# Create a item class
 class Item:
     def __init__(self, room, description, name):
         self.room = room
@@ -22,451 +27,332 @@ class Item:
         self.name = name
 
 
+# Create a person class
+class Person:
+    def __init__(self, room, description, name):
+        self.room = room
+        self.description = description
+        self.name = name
+
+
+# Create the main function
 def main():
 
-    inventory = []
+    # Create people list
+    person_list = []
+
+    # Create the people
+    messi = Person(15, "Lionel Messi is standing in front of you. He want's you to shoot with him."
+                       "You can go shoot with him or go to a different room.", "messi")
+    person_list.append(messi)
+
+    jordan = Person(9, "Michael Jordan is standing under the basketball hoop. He want's to shoot hoops with him."
+                       "You can go shoot with him or go to a different room.", "jordan")
+    person_list.append(jordan)
+
+    bartender = Person(4, "There is a bartender standing behind the bar."
+                          "He says they are only serving water at this time.", "bartender")
+    person_list.append(bartender)
 
     item_list = []
 
-    item = Item(
-        7,
-        "You see a comfortable looking chair in the corner. If you want, take a rest.",
-        "chair")
+    item = Item(2, "You are bored and want to watch T.V. You see a remote on the table next to you. Pick it up if you "
+                   "would like.", "remote")
     item_list.append(item)
 
-    item = Item(
-        0,
-        "You see a key lying on the floor. Try and pick it up.",
-        "key")
+    item = Item(7, "You see a delicious apple on the counter. Pick it up and save it for later if you want.", "apple")
     item_list.append(item)
 
-    item = Item(
-        5,
-        "You are thirst for some water. Try turning on the sink.",
-        "sink")
+    item = Item(9, "You see a basketball laying on the ground." 
+                   "Pick it up if you would like", "basketball")
     item_list.append(item)
 
-    item = Item(
-        3,
-        "In the bedroom, you see a golden plated sword. That may come in use later, pick it up.",
-        "sword")
+    item = Item(15, "There are soccer balls laying around. Go pick one up and keep it if you would like.", "ball")
     item_list.append(item)
 
-    item = Item(
-        13,
-        "In the corner you see a chest. If you have a key, try and open it up.",
-        "chest")
+    item = Item(4, "You see a glass of water sitting on the bar. Go pick it up and take a drink if you want.", "water")
     item_list.append(item)
 
     room_list = []
 
-    # Create room 0
-    room = Room(
-        "You are in the entry way to the abandoned house. "
-        "\nYou can investigate the dinning room to the east, the living room to the north, "
-        "\nor you may go to the 2nd level",
-        4,
-        None,
-        1,
-        None,
-        10,
-        None,
-        5,
-        None,
-        None,
-        None)
+    # Description for room 0
+    room = Room("You are in a master bedroom. You see doors going to the east and south. You can also go southeast.",
+                None, 1, 5, None, None, 6, None, None, None, None)
     room_list.append(room)
 
-    # Create room 1
-    room = Room(
-        "You have reached the dinning room. The floorboards squeak with every step. "
-        "\nYou see a suspicious trap door on the floor. You can choose to investigate that, "
-        "\nyou may return to the entry hall to the west, or you can choose the doors to the north and east of you.",
-        5,
-        None,
-        2,
-        0,
-        None,
-        14,
-        None,
-        4,
-        None,
-        None)
+    # Description for room 1
+    room = Room("You are in a bathroom. There is one door which goes back into the bedroom west.\nYou can also go "
+                "southwest.", None, None, None, 0, None, None, 5, None, None, None)
     room_list.append(room)
 
-    # Create room 2
-    room = Room(
-        "You have entered a dimly lit hallway. The walls appear to be closing in on you and you want to get out fast. "
-        "\nQuickly choose to go either north, east, west, northeast, or northwest.",
-        6,
-        None,
-        3,
-        1,
-        None,
-        None,
-        7,
-        5,
-        None,
-        None)
+    # Description for room 2
+    room = Room("You are now in what looks to be a living room. "
+                "You can enter different rooms to you east and south. You can also go southeast to a man cave.", None,
+                3, 7, None, None, 8, None, None, None, None)
     room_list.append(room)
 
-    # Create room 3
-    room = Room(
-        "You stumble into what appears to be a bedroom. "
-        "\nAs you are looking around you hear a snarling voice telling you to get out. "
-        "\nYou take the advice and choose a door to the north or west.",
-        7,
-        None,
-        None,
-        2,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None)
+    # Description for room 3
+    room = Room("You see that you are in a theater room. There are doors to your east and south. There also is a "
+                "entrance to a basketball court southeast.", None, 4, 8, 2, None, 9, None, None, None, None)
     room_list.append(room)
 
-    # Create room 4
-    room = Room(
-        "You enter the living room of the abandoned house. The walls are filled with creepy paintings of the house's "
-        "\nowners' ancestors. To the north the complete wall is a window looking out into a huge yard. "
-        "\nYou may choose to exit the house onto the deck to the northeast, or continue exploring the house by "
-        "\ngoing south or east.",
-        None,
-        0,
-        5,
-        None,
-        None,
-        None,
-        8,
-        None,
-        1,
-        None)
+    # Description for room 4
+    room = Room("You now enter a room with a bar. There are doors to your west and south. There are also stairs that "
+                "go up or down.", None, None, 9, 3, None, None, None, None, 11, 16)
     room_list.append(room)
 
-    # Create room 5
-    room = Room(
-        "You have entered the bathroom of the abandoned house. "
-        "\nYou try to use the water, but a thick brown substance comes out instead. "
-        "\nTo leave, you can go in any direction except for up, down, northeast, and northwest.",
-        8,
-        1,
-        6,
-        4,
-        None,
-        None,
-        None,
-        None,
-        2,
-        0)
+    # Description for room 5
+    room = Room("You now enter what looks to be a kids bedroom. "
+                "There are doors to your north and east.", 0, 6, None, None, None, None, None, None, None, None)
     room_list.append(room)
 
-    # Create room 6
-    room = Room(
-        "After opening the door you stumble down a set of stairs. "
-        "\nThis is the stair case downstairs. You are at the bottom of the stairs. You can choose to go back up, or "
-        "\nenter the mysterious door by going north.",
-        15,
-        None,
-        None,
-        None,
-        2,
-        None,
-        None,
-        None,
-        None,
-        None)
+    # Description for room 6
+    room = Room("You enter a gym with a bunch of weights and lifting machines. "
+                "You see doors to your west and east. You can also go northwest.", None, 7, None, 5, None, None, None,
+                0, None, None)
     room_list.append(room)
 
-    # Create room 7
-    room = Room(
-        "You enter what appears to have once been a man cave. You see the most comfortable looking lazy boy you "
-        "\nhave ever seen in the corner of the room. Oddly, it is the only thing in the house that seems to have "
-        "\nbeen perfectly preserved. Take a sit down, or go south, west, or southwest.",
-        None,
-        3,
-        None,
-        6,
-        None,
-        None,
-        None,
-        None,
-        None,
-        2)
+    # Description for room 7
+    room = Room("You now enter a kitchen. You see doors to your west, north, and east. You can also go into the "
+                "bathroom northwest or head out to the deck south.", 2, 8, 10, 6, None, None, None, 1, None, None)
     room_list.append(room)
 
-    # Create room 8
-    room = Room(
-        "You go outside on the deck to get some fresh air. You can go back into the house by going south or southwest, "
-        "\nor you can remain outside by going up the staircase to the east.",
-        None,
-        5,
-        9,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        4)
+    # Description for room 8
+    room = Room("You now enter a super cool man cave. There are doors to your east and west. "
+                "You can also go northwest.", None, 9, None, 7, None, None, None, 2, None, None)
     room_list.append(room)
 
-    # Room 9
-    room = Room(
-        "This is a staircase to the 2nd floor deck. Go up west to get to the bottom level or up to get to "
-        "\nthe top level.",
-        None,
-        None,
-        None,
-        12,
-        None,
-        8,
-        None,
-        None,
-        None,
-        None)
+    # Description for room 9
+    room = Room("You now enter a big room with a full size basketball court. "
+                "There are doors to the north and west. Theres another door that goes northwest.", 4, None, None, 8,
+                None, None, None, 3, None, None)
     room_list.append(room)
 
-    # Create a upstairs room 10
-    room = Room(
-        "You are at the top of the stairs on the 2nd floor. To go into the hallway, go north. To go back to the "
-        "\nentryway, go down.",
-        11,
-        None,
-        None,
-        None,
-        None,
-        0,
-        None,
-        None,
-        None,
-        None)
+    # Description for room 10
+    room = Room("You are now outside on the deck outlooking the beautiful ocean. You can only go back north where "
+                "you came from.", 7, None, None, None, None, None, None, None, None, None)
     room_list.append(room)
 
-    # Create room 11
-    room = Room(
-        "You have entered the 2nd floor hallway. The hallway smells of mold and rotting wood. "
-        "\nThe floor seems like it will give out any second. "
-        "\nGet some air to the north, or enter the only room to the southeast.",
-        12,
-        10,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        13,
-        None)
+    # Description for room 11
+    room = Room("You are now upstairs in a hallway. You may go south, southwest, or west. "
+                "You can also go back downstairs.", None, None, 13, 12, None, None, 14, None, None, 4)
     room_list.append(room)
 
-    # Create Room 12
-    room = Room(
-        "You have entered the upper deck on the 2nd floor. You can either go into the house by going south, "
-        "\nor you can go to the lower deck by going down the stairs.",
-        None,
-        11,
-        9,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None)
+    # Description for room 12
+    room = Room("You are now in a guest bedroom. You may go east, southeast, south, or west.", None, 11, 14, 15, None,
+                13, None, None, None, None)
     room_list.append(room)
 
-    # Create Room 13
-    room = Room(
-        "You have entered the upstairs bedroom. They say this room is haunted. "
-        "\nTo leave, go to the northwest back into the hallway.",
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        11,
-        None,
-        None)
+    # Description for room 13
+    room = Room("You are now in a storage room with nothing but boxes. You may go north back into "
+                "the hallway or northwest.", 11, None, None, None, None, None, None, 12, None, None)
     room_list.append(room)
 
-    # Create a downstairs room 14
-    room = Room(
-        "You went down the trap door and are in a pitch black, very enclosed area. You feel your surroundings, "
-        "\nand all you can feel around you is wall and a latter going back up from where you came from. ",
-        None,
-        None,
-        None,
-        None,
-        1,
-        None,
-        None,
-        None,
-        None,
-        None,)
+    # Description for room 14
+    room = Room("You are in a bathroom. You can go north", 12, None, None, None, None, None, None, None, None, None)
     room_list.append(room)
 
-    # Create the basement AKA room 15
-    room = Room(
-        "You enter the basement and search for a light. Go up to get back to the hallway on the main level.",
-        None,
-        None,
-        None,
-        None,
-        2,
-        None,
-        None,
-        None,
-        None,
-        None)
+    # Description for room 15
+    room = Room("You are now in a indoor soccer field. You may go east into the bedroom.", None, 12, None, None, None,
+                None, None, None, None, None)
     room_list.append(room)
 
-    # Create the starting point
+    # Description for room 16
+    room = Room("You have now entered the basement which includes a giant pool. "
+                "You can only go back upstairs from here.", None, None, None, None, None, None, None, None, None, 4)
+    room_list.append(room)
+
+    # Starting room
     current_room = 0
 
-    # Create the boolean variable
+    # Create boolean variable
     done = False
     while not done:
+        # Print room description
         print()
         print(room_list[current_room].description)
+
+        # Print items in room
         for item in item_list:
             if item.room == current_room:
                 print(item.description)
 
+        # Print the person description
+        for person in person_list:
+            if person.room == current_room:
+                print(person.description)
+
+        # Get command from user
         print()
-        user_input = input("What is your command? ")
+        user_input = input("What's your command master?")
         command_words = user_input.split(" ")
 
-        # Allow the user to go north
-        if command_words[0].upper() == "NORTH" or command_words[0].upper() == "N":
+        if command_words[0].upper() == "North" or command_words[0].upper() == "N":
             next_room = room_list[current_room].north
             if next_room is None:
+                print("You can't go that way.")
                 print()
-                print("Sorry, you cannot go that way.")
             else:
                 current_room = next_room
 
-        # Allow the user to go south
-        elif command_words[0].upper() == "SOUTH" or command_words[0].upper() == "S":
+        elif command_words[0].upper() == "South" or command_words[0].upper() == "S":
             next_room = room_list[current_room].south
+            print()
             if next_room is None:
+                print("You can't go that way.")
                 print()
-                print("Sorry, you cannot go that way.")
             else:
                 current_room = next_room
 
-        # Allow the user to go east
-        elif command_words[0].upper() == "EAST" or command_words[0].upper() == "E":
+        elif command_words[0].upper() == "East" or command_words[0].upper() == "E":
             next_room = room_list[current_room].east
+            print()
             if next_room is None:
+                print("You can't go that way.")
                 print()
-                print("Sorry, you cannot go that way.")
             else:
                 current_room = next_room
 
-        # Allow the user to go west
-        elif command_words[0].upper() == "WEST" or command_words[0].upper() == "W":
+        elif command_words[0].upper() == "West" or command_words[0].upper() == "W":
             next_room = room_list[current_room].west
+            print()
             if next_room is None:
+                print("You can't go that way.")
                 print()
-                print("Sorry, you cannot go that way.")
             else:
                 current_room = next_room
 
-        # Allow the user to go up
-        elif command_words[0].upper() == "UP" or command_words[0].upper() == "U":
-            next_room = room_list[current_room].up
-            if next_room is None:
-                print()
-                print("Sorry, you cannot go that way.")
-            else:
-                current_room = next_room
-
-        # Allow the user to go down
-        elif command_words[0].upper() == "Down" or command_words[0].upper() == "D":
-            next_room = room_list[current_room].down
-            if next_room is None:
-                print()
-                print("Sorry, you cannot go that way.")
-            else:
-                current_room = next_room
-
-        # Allow the user to go northeast
         elif command_words[0].upper() == "Northeast" or command_words[0].upper() == "NE":
             next_room = room_list[current_room].northeast
+            print()
             if next_room is None:
+                print("You can't go that way.")
                 print()
-                print("Sorry, you cannot go that way.")
             else:
                 current_room = next_room
 
-        # Allow the user to go northeast
-        elif command_words[0].upper() == "Northwest" or command_words[0].upper() == "NW":
-            next_room = room_list[current_room].northwest
-            if next_room is None:
-                print()
-                print("Sorry, you cannot go that way.")
-            else:
-                current_room = next_room
-
-        # Allow the user to go northeast
         elif command_words[0].upper() == "Southeast" or command_words[0].upper() == "SE":
             next_room = room_list[current_room].southeast
+            print()
             if next_room is None:
+                print("You can't go that way.")
                 print()
-                print("Sorry, you cannot go that way.")
             else:
                 current_room = next_room
 
-        # Allow the user to go northeast
-        elif command_words[0].upper() == "SOUTHWEST" or command_words[0].upper() == "SW":
+        elif command_words[0].upper() == "Southwest" or command_words[0].upper() == "SW":
             next_room = room_list[current_room].southwest
+            print()
             if next_room is None:
+                print("You can't go that way.")
                 print()
-                print("Sorry, you cannot go that way.")
             else:
                 current_room = next_room
 
-        # Allow the user to end the game
+        elif command_words[0].upper() == "Northwest" or command_words[0].upper() == "NW":
+            next_room = room_list[current_room].northwest
+            print()
+            if next_room is None:
+                print("You can't go that way.")
+                print()
+            else:
+                current_room = next_room
+
+        elif command_words[0].upper() == "Up" or command_words[0].upper() == "U":
+            next_room = room_list[current_room].up
+            print()
+            if next_room is None:
+                print("You can't go that way.")
+                print()
+            else:
+                current_room = next_room
+
+        elif command_words[0].upper() == "Down" or command_words[0].upper() == "D":
+            next_room = room_list[current_room].down
+            print()
+            if next_room is None:
+                print("You can't go that way.")
+                print()
+            else:
+                current_room = next_room
+
         elif command_words[0].upper() == "QUIT" or command_words[0].upper() == "Q":
             done = True
-            print()
-            print("You have left the house. GAME OVER")
+            print("You have quit.")
 
-        # Allow the user to pick up objects
+        # Be able to pick up objects
         elif command_words[0].upper() == "GET" or command_words[0].upper() == "G":
             get_item = False
             for item in item_list:
-                if item.room == current_room:
+                if item.room == current_room and item.name == command_words[1].lower():
                     print()
-                    print("You have collected", item.name)
+                    print("You have obtained", item.name)
                     get_item = True
-                    inventory.append(item.name)
                     item.room = -1
             if not get_item:
                 print()
-                print("The item is not in this location.")
+                print("The item your requesting isn't here.")
 
         elif command_words[0].upper() == "RELEASE" or command_words[0].upper() == "R":
-            if item.room == -1:
+            get_item = False
+            for item in item_list:
+                if item.room == -1 and item.name == command_words[1].lower():
+                    print()
+                    print(f"You have released {item.name}.")
+                    get_item = True
+                    item.room = current_room
+            if not get_item:
                 print()
-                print("You have released", item.name)
-                item.room = 1
-            else:
-                print()
-                print("You do not have this item on hand.")
+                print("You currently don't have this item.")
 
         elif command_words[0].upper() == "INVENTORY" or command_words[0].upper() == "I":
-            print()
-            print(inventory)
+            for item in item_list:
+                if item.room == -1:
+                    print(item.name)
 
-        # Create a statement for any inputs that do not match the game
+        elif command_words[0].upper() == "SHOOT" or command_words[0].upper() == "SH":
+            item_use = False
+            for item in item_list:
+                if item.room == -1 and item.name == "basketball":
+                    print()
+                    print("You shoot the basketball.")
+                    item_use = True
+                    # Allow user to shoot with person
+                    for person in person_list:
+                        if person.room == current_room:
+                            print()
+                            print("You have successfully just shot with one of the greatest players of all time."
+                                  "He will now disappear.")
+                            person.room = -1
+            if not item_use:
+                print()
+                print("You don't have a basketball in your hand.")
+
+        elif command_words[0].upper() == "Drink" or command_words[0].upper() == "D":
+            item_use = False
+            for item in item_list:
+                if item.room == -1 and item.name == "water":
+                    print()
+                    print("You drink the water.")
+                    item_use = True
+            if not item_use:
+                print()
+                print("You don't have a glass of water in your hand.")
+
+        elif command_words[0].upper() == "Use" or command_words[0].upper() == "U":
+            item_use = False
+            for item in item_list:
+                if item.room == -1 and item.name == "remote":
+                    print()
+                    print("You use the remote.")
+                    item_use = True
+            if not item_use:
+                print()
+                print("You don't have the remote in your hand.")
+
         else:
             print()
-            print("The server does not understand what you are trying to do. Please try again.")
+            print("The program does not understand what you typed. Try again.")
 
 
 main()
